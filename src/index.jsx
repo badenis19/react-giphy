@@ -7,18 +7,24 @@ class Hello extends Component {
 
   constructor(props) {
     super(props); // so that we don't break React
+    // define initial state
     this.state = {
-      clicked: false
+      clicked: false,
+      counter: 0
     };
   }
 
+  // defining a function which will be called in the render (in return)
+  // ES6 notation required for it to work, bind it with arrow function
   handleClick = () => {
     // change the state
     this.setState({
-      clicked: !this.state.clicked
+      // will change the value of clicked to it's opposite (true/false OR false/true)
+      clicked: !this.state.clicked,
+      // will update/increment the counter on each click
+      counter: this.state.counter + 1
     });
   }
-
 
   render() {
     // render method is called by react automatically
@@ -27,16 +33,15 @@ class Hello extends Component {
       // if the state of is true then we add the class clicked else nothing (TERNARY)
       <div className={this.state.clicked ? 'clicked' : null}
         onClick={this.handleClick}>
-        Hello {this.props.name}
+        Hello {this.props.name} {this.state.counter}
       </div>
     );
   }
-
 }
 
 const root = document.getElementById('root');
 if (root) {
   ReactDOM.render(
     <Hello name="Bruno" />,
-     root);
+    root);
 }
