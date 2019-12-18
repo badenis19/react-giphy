@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
-import Gif from './gif.jsx'
+import Gif from './gif';
 
 class GifList extends Component {
+  // Methods
+  getImageIDGif = (gifId) => {
+    // this lines are not needed
+    // this.setState({
+    //   imageIDGif: gifId
+    // });
+    // gifId is the id returned from gif.jsx, sending the getImageIDGif method
+    this.props.getIdFunction(gifId);
+  }
 
   renderList = () => {
     return this.props.gifs.map(gif => {
-      return <Gif id={gif.id} key={gif.id} />
+      return <Gif id={gif.id} key={gif.id} parentCallback={this.getImageIDGif}/>;
       });
     }
 
+  // Render Method
   render() {
     return (
-      <div className="git-list">
+      <div className="gif-list">
         {this.renderList()}
       </div>
     );
@@ -19,16 +29,3 @@ class GifList extends Component {
 }
 
 export default GifList;
-
-
-// class GifList extends Component {
-//   render() {
-//     return (
-//       <div className="git-list">
-//         {this.props.gifs.map(gif => {
-//         return <Gif id={gif.id} key={gif.id} />
-//         })}
-//       </div>
-//     );
-//   }
-// }

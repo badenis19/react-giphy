@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
-
+  // define function outside of the render()
   handleUpdate = (event) => {
-    debugger
     {this.props.searchFunction(event.target.value)}
   }
 
