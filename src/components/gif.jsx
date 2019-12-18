@@ -7,9 +7,7 @@ class Gif extends Component {
   };
 
   sendData = (selectImage) => {
-    // debugger
     this.props.parentCallback(this.props.id);
-    // console.log(selectImage.target.src)
     // console.log(this.props)
   };
 
