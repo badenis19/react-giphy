@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import Gif from './gif';
 
 class GifList extends Component {
-  // state = { imageIDGif: "Default" }
   // Methods
   getImageIDGif = (gifId) => {
     // this lines are not needed
     // this.setState({
     //   imageIDGif: gifId
     // });
+    // gifId is the id returned from gif.jsx, sending the getImageIDGif method
     this.props.getIdFunction(gifId);
   }
 

@@ -7,7 +7,6 @@ import Gif from './gif';
 import GifList from './gif_list.jsx';
 
 class App extends Component {
-
   constructor(props){
     super(props);
 
@@ -15,7 +14,6 @@ class App extends Component {
       gifs: [],
       selectedGifId: "gdNmEIkMm2wUpspdTf"
     };
-
     // this.search("homer thinking");
   }
 
