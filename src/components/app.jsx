@@ -4,10 +4,10 @@ import giphy from 'giphy-api';
 // Components
 import SearchBar from './search_bar';
 import Gif from './gif';
-import GifList from './gif_list.jsx';
+import GifList from './gif_list';
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -18,14 +18,12 @@ class App extends Component {
   }
 
   getImageIDGifList = (childData) => {
-  this.setState({
-    selectedGifId: childData
-  });
-}
-
+    this.setState({
+      selectedGifId: childData
+    });
+  }
 
   search = (query) => {
-    //API call
     giphy('r35prwV5W8icbEFDqy3FmaxthzVv45d4').search({
       q: query,
       rating: 'g',
@@ -33,7 +31,7 @@ class App extends Component {
     }, (error, result) => {
       this.setState({
         gifs: result.data
-        });
+      });
     });
   }
 
@@ -48,7 +46,7 @@ class App extends Component {
         <div className="left-scene">
           <SearchBar searchFunction={this.search} />
           <div className="selected-gif">
-            <Gif id={this.state.selectedGifId}/>
+            <Gif id={this.state.selectedGifId} />
           </div>
         </div>
         <div className="right-scene">
